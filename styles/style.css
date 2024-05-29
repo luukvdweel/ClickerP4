@@ -287,7 +287,6 @@ td {
 }
 
 
-
 .meContainer2{
   margin-top: auto;
   display:flex;
@@ -308,4 +307,8 @@ td {
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+.logo:active img {
+  transform: translateY(2px); /* Verplaats de afbeelding 2 pixels naar beneden */
 }
