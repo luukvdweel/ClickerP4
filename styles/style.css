@@ -312,3 +312,18 @@ td {
 .logo:active img {
   transform: translateY(2px); /* Verplaats de afbeelding 2 pixels naar beneden */
 }
+
+#cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0; /* Voeg deze regel toe om het element links uit te lijnen */
+  right: 0; /* Voeg deze regel toe om het element rechts uit te lijnen */
+  width: auto; /* Stel de breedte in op automatisch om alleen het tekstgedeelte te vullen */
+  background-color:rgba(62, 53, 53);;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin: 0; /* Voeg marge toe om ervoor te zorgen dat het element de volledige breedte van de pagina vult */
+  display: none;
+  z-index: 1;
+}
