@@ -309,3 +309,14 @@ td {
   align-items: center;
   height: 100vh;
 }
+
+#cookie-banner {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  display: none;
+}
