@@ -4,7 +4,7 @@ $servername = "localhost";
 $dbname = "login-p4";
 $username = "root";
 $password = "";
-$tableName = "users"; // Specify the table name here
+$tableName = "users"; // Change this variable to adjust the table name
 
 try {
   $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -14,30 +14,27 @@ try {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $email = $_POST["email"];
   $username = $_POST["username"];
   $pwd = $_POST["pwd"];
 
-  $sql = "SELECT * FROM $tableName WHERE username = :username"; // Use $tableName variable
+  // Hash the password
+  $hashed_password = password_hash($pwd, PASSWORD_DEFAULT);
+
+  // Insert into the specified table
+  $sql = "INSERT INTO $tableName (email, username, password) VALUES (:email, :username, :pwd)";
   $stmt = $conn->prepare($sql);
+  $stmt->bindParam(":email", $email);
   $stmt->bindParam(":username", $username);
+  $stmt->bindParam(":pwd", $hashed_password);
   $stmt->execute();
-  $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-  if ($user && password_verify($pwd, $user['password'])) {
-    // Login successful, set session variables
-    $_SESSION['username'] = $username;
-    $_SESSION['coins'] = $user['coins'];
-    $_SESSION['invest'] = $user['invest'];
+  $conn = null;
+  $stmt = null;
 
-    header("Location: ../index.html"); // Redirect to homepage or wherever you want
-    exit();
-  } else {
-    // Login failed
-    header("Location: ../index.html"); // Redirect back to login page
-    exit();
-  }
+  header("Location: ../index.html");
+  die();
 } else {
-  header("Location: ../index.html"); // Redirect back to login page if accessed directly
-  exit();
+  header("Location: ../index.html");
 }
 ?>

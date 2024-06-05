@@ -87,27 +87,28 @@
                   </table>
             </ul>
         </div>
-        <div id="login" >
+        <div id="login">
           <div class="close" onclick="overlayOff('login')">Close</div>
-              <div class="tab-bar">
-                <button class="tab-item tab-button" onclick="openTab('Login')">Login With An Account</button>
-                <button class="tab-item tab-button" onclick="openTab('Register')">Create An Account</button>
+          <div class="tab-bar">
+            <button class="tab-item tab-button" onclick="openTab('Login')">Login With An Account</button>
+            <button class="tab-item tab-button" onclick="openTab('Register')">Create An Account</button>
+          </div>
+        
+          <div id="Login" class="tab-container tab">
+            <form action="php/login.php" method="POST" class="meContainer2">
+              <div class="form-group">
+                <input type="text" class="form-control" id="username" name="username" placeholder="Username" style="height: 50px; width: 300px; text-align: center; font-size: 20px;  margin-bottom: 20px;" required>
               </div>
-
-
-              <div id="Login" class="tab-container tab">
-                <form action="php/login.php" method="POST" class="meContainer2">
-                  <div class="form-group">
-
-                    <input type="text" class="form-control" id="username" name="username" placeholder="Username" style="height: 50px; width: 300px; text-align: center; font-size: 20px;  margin-bottom: 20px;" required>
-                  </div>
-                  <div class="form-group">
-
-                    <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Password" style="height: 50px; width: 300px; text-align: center; font-size: 20px;  margin-bottom: 20px;" required>
-                  </div>
-                  <button type="submit" class="btn btn-primary" style="height: 50px; width: 200px; text-align: center; font-size: 30px;  margin-bottom: 20px;">Login</button>
-                </form>
+              <div class="form-group">
+                <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Password" style="height: 50px; width: 300px; text-align: center; font-size: 20px;  margin-bottom: 20px;" required>
               </div>
+              <p style="text-align:center; margin-top:10px;"><a href="html/forgot_password.html">Forgot Password?</a></p>
+              <button type="submit" class="btn btn-primary" style="height: 50px; width: 200px; text-align: center; font-size: 30px;  margin-bottom: 20px;">Login</button>
+            </form>
+             <!-- This is the added line -->
+          </div>
+       
+        
 
 
           
