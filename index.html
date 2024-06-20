@@ -28,7 +28,8 @@
         <div class="items backpain">
 
            <div class="amount_glass"> <div class="amount"><p id="score"></p></div> </div>
-           <button class="logo" onclick="add()"><img draggable="false" src="img/yea.png"></button>
+           <button class="logo" onclick="add()"><img id="logoImage" draggable="false" src="img/yea.png"></button>
+           <input type="file" id="imageUpload" accept="image/*" onchange="uploadImage()">
            <div class="action-space">
             <!-- <button class="arrow left"><img src="img/arrowleft.png" alt="Left Arrow"></button>
             <button class="arrow right"><img src="img/arrowright.png" alt="Right Arrow"></button> -->
@@ -164,5 +165,21 @@
      <script src="javascript/tab.js"></script>
      <script src="javascript/achievement.js"></script>
      <script src="javascript/session.js"></script>
+     <script>
+         function uploadImage() {
+             const fileInput = document.getElementById('imageUpload');
+             const file = fileInput.files[0];
+             const reader = new FileReader();
+
+             reader.onload = function(e) {
+                 const logoImage = document.getElementById('logoImage');
+                 logoImage.src = e.target.result;
+             }
+
+             if (file) {
+                 reader.readAsDataURL(file);
+             }
+         }
+     </script>
 </body>
 </html>
