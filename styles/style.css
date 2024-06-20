@@ -327,3 +327,31 @@ td {
   display: none;
   z-index: 1;
 }
+
+.action-space {
+  display: flex;
+  justify-content: space-between; /* Add space between elements */
+  align-items: center; /* Vertically center items */
+}
+
+.arrow {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.arrow img {
+  width: 40px; /* Adjust size as needed */
+  height: 40px; /* Adjust size as needed */
+}
+
+.arrow.left img {
+
+}
+
+
+/* Style for right arrow */
+.arrow.right img {
+  /* No need for additional styling */
+}

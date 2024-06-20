@@ -13,8 +13,6 @@
 </div>
      <header>
         <nav>
-
-
             <div><button onclick="overlayOn('invest')" id="investButton"><a>INVEST</a></button></div>
             <div><button id="loginButton" onclick="overlayOn('login')"><a>LOGIN</a></button></div>
         </nav>
@@ -31,35 +29,42 @@
 
            <div class="amount_glass"> <div class="amount"><p id="score"></p></div> </div>
            <button class="logo" onclick="add()"><img draggable="false" src="img/yea.png"></button>
+           <div class="action-space">
+            <!-- <button class="arrow left"><img src="img/arrowleft.png" alt="Left Arrow"></button>
+            <button class="arrow right"><img src="img/arrowright.png" alt="Right Arrow"></button> -->
+        </div>
+                 
            <div class="icons">
-            <button class="settings"><img src="img/settings.png" class="settings"></button>
+            <!-- <button class="settings"><img src="img/settings.png" class="settings"></button> -->
             <button id="achievementsButton" onclick="overlayOn('achievements')">Achievements</button>
         </div>
 
 
         </div>
+        <!-------------------------------------- INVEST ------------------------------------------------------------------------->
         <div id="invest" >
             <div class="close" onclick="overlayOff('invest')">Close</div>
             <ul id="invest-left">
                 <h1>INVEST</h1>
                 <table>
-                    <tr>
-                      <tH class="bigger"> <span id="DIT">0</span> CAPYCOIN    </tH>
-                      <td>  [<span id="coincost">50</span>]  </td>
-                      <td> <button onclick = "buyCoins()">Buy</button> </td>
-                      <td class="tableimg"> img </td>
-                    </tr>
-                    <tr>
-                      <th class="bigger">KITTYCOIN</th>
-                      <td> xxx </td>
-                      <td> <button class="buybut">Buy</button> </td>
-                      <td class="tableimg"> img </td>
-                    </tr>
+                  <tr>
+                    <th class="bigger"> <span id="DIT"></span> afk coins </th>
+                    <td> [<span id="coincost">50</span>] </td>
+                    <td> <button onclick="buyCoins()">Buy</button> </td>
+                </tr>
+                
+                <tr>
+                  <th class="bigger"> <span id="kittyCoinQuantity"></span> KITTYCOIN </th>
+                  <td> [<span id="kittyCoinCost">10</span>] </td>
+                  <td> <button onclick="multiplier()">Buy</button> </td>
+                </tr>
+                
+                
+                
                     <tr>
                       <th class="bigger">DUCKYCOIN</th>
                       <td> xxx </td>
                       <td> <button class="buybut">Buy</button> </td>
-                      <td class="tableimg"> img </td>
                     </tr>
                   </table>
             </ul>
@@ -87,6 +92,7 @@
                   </table>
             </ul>
         </div>
+        <!------------------------------------  LOGIN   ---------------------------------------------------------------------------->
         <div id="login">
           <div class="close" onclick="overlayOff('login')">Close</div>
           <div class="tab-bar">
@@ -106,12 +112,7 @@
               <button type="submit" class="btn btn-primary" style="height: 50px; width: 200px; text-align: center; font-size: 30px;  margin-bottom: 20px;">Login</button>
             </form>
              <!-- This is the added line -->
-          </div>
-       
-        
-
-
-          
+          </div>        
               <div id="Register" class="tab-container tab" style ="display:none;">
                 <form action="php/formhandler.php" method = "post" class="meContainer23">
                   <input type= "text" name = "username" placeholder = " Username" style="height: 50px; width: 300px; text-align: center; font-size: 20px;  margin-bottom: 20px;">
@@ -123,7 +124,7 @@
               </div>
       </div>
        
-<!--style="height: 50px; width: 300px; text-align: center; font-size: 30px;  margin-bottom: 20px;">-->
+<!-------------------------------------ACHIEVEMENSTS------------------------------------------------------------------------------------->>
 
         <div id="achievements" >
             <div class="close" onclick="overlayOff('achievements')">Close</div>
@@ -154,6 +155,7 @@
               </div>
             </div>
         </div>
+      <!------------------------------------------------------------------------------------------------------------------------->
      </main>
      <script src="javascript/cookies.js"></script>
      <script src="javascript/value.js"></script>
@@ -162,11 +164,5 @@
      <script src="javascript/tab.js"></script>
      <script src="javascript/achievement.js"></script>
      <script src="javascript/session.js"></script>
-
-
-
-
-
- 
 </body>
 </html>

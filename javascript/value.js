@@ -1,29 +1,35 @@
 var score = 0;
-
 var coinCost = 50;
 var DIT = 0;
+var clickMultiplier = 1; // Initialize click multiplier
+var coin2 = 10; // Initialize coin2 with a value
 
 function buyCoins() {
-  if (score >= coinCost){
-  score = score - coinCost;
-  DIT = DIT + 1;
-  coinCost =  Math.round(coinCost * 1.25);
-  document.getElementById("coincost").innerHTML = coinCost; 
-  document.getElementById("score").innerHTML = score + "D"; 
-  document.getElementById("DIT").innerHTML = DIT; 
+  if (score >= coinCost) {
+    score -= coinCost;
+    DIT++;
+    coinCost = Math.round(coinCost * 1.25);
+    document.getElementById("coincost").innerHTML = coinCost;
+    document.getElementById("score").innerHTML = score + "D";
+    document.getElementById("DIT").innerHTML = DIT;
   }
 }
 
-setInterval ( function(){
-  score=score + DIT
-  document.getElementById("score").innerHTML = score + "D"; 
-},1000) ;
-
-
-
 function add() {
-  score++;
-  document.getElementById("score").innerHTML = score + "D"; 
+  score * clickMultiplier; // Increase score by the click multiplier
+  document.getElementById("score").innerHTML = score + "D";
   sessionStorage.setItem("score", score);
 }
 
+setInterval(function () {
+  score += DIT; // Adjust score increment with DIT and click multiplier
+  document.getElementById("score").innerHTML = score + "D";
+}, 1000);
+
+function multiplier() {
+  if (score >= coin2) {
+    score -= coin2;
+    clickMultiplier *= 2; 
+    document.getElementById("score").innerHTML = score + "D";
+  }
+}
